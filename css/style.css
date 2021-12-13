@@ -1,0 +1,101 @@
+:root {
+    --size: 80px
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: normal;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+div.calculator {
+    display: grid;
+    background-color: #f3f3f3;
+    grid-template-columns: repeat(6, var(--size));
+    grid-template-rows: minmax(calc(var(--size) * 2), auto) repeat(6, var(--size));
+    border-radius: 15px;
+    padding: 10px;
+    box-shadow: 0px 0px 7.5px 0px lightgray;
+}
+
+div.calculator.hexxed {
+    grid-template-rows: minmax(calc(var(--size) * 2), auto) repeat(7, var(--size));
+}
+
+div.calculator div.output {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-evenly;
+    flex-direction: column;
+    grid-column: 1 / -1;
+    word-wrap: break-word;
+    word-break: break-all;
+    background-color: #f3f3f3;
+    box-shadow: 0px 0px 7.5px 0px lightgray;
+    border-radius: 7.5px;
+    padding: 10px 20px;
+    margin: 5px;
+}
+
+div.output div.history {
+    font-size: 1.5rem;
+    color: #7b7b7b;
+}
+
+div.output div.calculation {
+    font-size: 2rem;
+    color: #3a3a3a;
+}
+
+div.calculator > button {
+    cursor: pointer;
+    border-radius: 7.5px;
+    font-size: 1.15rem;
+    outline: none;
+    border: none;
+    background-color: #f3f3f3;
+    box-shadow: 0px 0px 7.5px 0px lightgray;
+    text-align: center;
+    margin: 5px;
+    color: #3a3a3a;
+    transition: .1s;
+}
+
+div.calculator > button:hover,
+div.calculator.binary > button[data-binary-number]:hover {
+    background-color: #e6e6e6;
+}
+
+div.calculator.binary > button[data-number],
+div.calculator > select[disabled] {
+    background-color: #7b7b7b3f;
+}
+
+div.calculator.binary > button[data-binary-number] {
+    background-color: #f3f3f3;
+}
+
+div.calculator > button.numericSystem {
+    color: rgb(0, 81, 220);
+}
+
+div.calculator > button.span-two-row {
+    grid-row: span 2;
+}
+
+div.calculator > button.span-two-column {
+    grid-column: span 2;
+}
+
+.hidden {
+    display: none;
+}
